@@ -1,0 +1,25 @@
+organik = ['sayur busuk', 'makanan basi', 'kotoran hewan', 'daun']
+kertas = ['kardus', 'kertas gorengan', 'kertas', 'paperbag']
+plastik = ['kresek', 'botol plastik', 'cup plastik', 'mangkok plastik']
+logam = ['kaleng','baterai', 'hp', 'elektronik', 'kabel']
+
+@bot.command()
+async def tanya_sampah(ctx):
+
+    await ctx.send('Apa sampah yang ingin kau periksa?')
+    message = await bot.wait_for(message = await bot.wait_for('message', check=lambda m: m.author == ctx.author and m.channel == ctx.channel))
+    message = str(message.content)
+
+    if message.lower() in organik:
+        await ctx.send('ITU SAMPAH **ORGANIK BRAY')
+        await ctx.send('Mending jadiin pupuk ae lumayan')
+    elif message.lower() in kertas:
+        await ctx.send('ITU KERTAS CO')
+        await ctx.send('Kumpulin semuanya terus jadiin bubur kertas')
+        await ctx.send('kalo gak lu jadiin hiasan ato apa kek')
+    elif message.lower() in plastik:
+        await ctx.send('PLASTIK ITU! JANGAN DIBUANG ENTAR GUA GETOK ONLINE LU')
+    elif message.lower() in logam: 
+        await ctx.send('PAKE AJA BUAT HANTEM PREMAN LUMAYAN PERLINDUNGAN DIRI')
+    else:
+        await ctx.send('BRAY BUKAN SAMPAH ITU! NILAI IPAMU BERAPA SIH 🗿')
